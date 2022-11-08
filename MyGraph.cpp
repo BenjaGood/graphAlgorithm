@@ -3,18 +3,18 @@
 #include <vector>
 
 //Complejidad O(n^2)
-MyGraph::MyGraph(std::vector<std::vector<int>>& mat) {
-    load(mat);
+MyGraph::MyGraph(std::vector<std::vector<int>>& vecOfInt){
+    load(vecOfInt);
 }
 
 //Complejidad O(n^2)
-void MyGraph::load(std::vector<std::vector<int>>& mat) {
-    this->mat = mat;
-    numVertices = mat.size();
+void MyGraph::load(std::vector<std::vector<int>>& vecOfInt){
+    this -> vecOfInt = vecOfInt;
+    numVertex = vecOfInt.size();
     numEdges = 0;
-    for (int i = 0; i < numVertices; i++) {
-        for (int j = 0; j < numVertices; j++) {
-            if (mat[i][j] == 1) {
+    for (int i = 0; i < numVertex; i++){
+        for (int j = 0; j < numVertex; j++) {
+            if (vecOfInt[i][j] == 1) {
                 numEdges++;
             }
         }
@@ -23,18 +23,18 @@ void MyGraph::load(std::vector<std::vector<int>>& mat) {
 }
 
 //Complejidad O(n^2) 
-void MyGraph::DFS() {
-    std::vector<bool> visited(numVertices, false);
+void MyGraph::DFS(int initial){
+    std::vector<bool> visited(numVertex, false);
     std::vector<int> stack;
-    stack.push_back(0);
-    while (!stack.empty()) {
+    stack.push_back(initial);
+    while (!stack.empty()){
         int v = stack.back();
         stack.pop_back();
         if (!visited[v]) {
             visited[v] = true;
             std::cout << v << " ";
-            for (int i = numVertices - 1; i >= 0; i--) {
-                if (mat[v][i] == 1 && !visited[i]) {
+            for (int i = numVertex - 1; i >= 0; i--){
+                if (vecOfInt[v][i] == 1 && !visited[i]){
                     stack.push_back(i);
                 }
             }
@@ -44,18 +44,18 @@ void MyGraph::DFS() {
 }
 
 //Complejidad O(m+n) 
-void MyGraph::BFS() {
-    std::vector<bool> visited(numVertices, false);
+void MyGraph::BFS(int initial){
+    std::vector<bool> visited(numVertex, false);
     std::vector<int> queue;
-    queue.push_back(0);
-    while (!queue.empty()) {
+    queue.push_back(initial);
+    while (!queue.empty()){
         int v = queue.front();
         queue.erase(queue.begin());
         if (!visited[v]) {
             visited[v] = true;
             std::cout << v << " ";
-            for (int i = 0; i < numVertices; i++) {
-                if (mat[v][i] == 1 && !visited[i]) {
+            for (int i = 0; i < numVertex; i++){
+                if (vecOfInt[v][i] == 1 && !visited[i]){
                     queue.push_back(i);
                 }
             }

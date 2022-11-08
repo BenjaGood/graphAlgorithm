@@ -25,9 +25,9 @@ int main() {
     MyGraph g(mat);
     cout << "Impresioes del grafo" << endl;
     cout << "DFS: ";
-    g.DFS();
+    g.DFS(0);
     cout << "BFS: ";
-    g.BFS();
+    g.BFS(0);
     return 0;
 }
 

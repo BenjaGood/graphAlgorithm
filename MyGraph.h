@@ -6,14 +6,14 @@
 
 class MyGraph {
     private:
-        std::vector<std::vector<int>> mat;
-        int numVertices;
+        std::vector<std::vector<int>> vecOfInt;
+        int numVertex;
         int numEdges;
     public:
-        MyGraph(std::vector<std::vector<int>>& mat);
-        void load(std::vector<std::vector<int>>& mat);
-        void DFS();
-        void BFS();
+        MyGraph(std::vector<std::vector<int>>& vecOfInt);
+        void load(std::vector<std::vector<int>>& vecOfInt);
+        void DFS(int initial);
+        void BFS(int initial);
 };
 #endif // MYGRAPH_H
 
