@@ -7,13 +7,18 @@
 class MyGraph {
     private:
         std::vector<std::vector<int>> vecOfInt;
-        int numVertex;
+        int numOfVertex;
         int numEdges;
     public:
         MyGraph(std::vector<std::vector<int>>& vecOfInt);
         void load(std::vector<std::vector<int>>& vecOfInt);
         void DFS(int initial);
         void BFS(int initial);
+        void loadGraph();
+        bool isTree();
+        void topologicalSort();
+        bool bipartiteGraph();
+
 };
 #endif // MYGRAPH_H
 
